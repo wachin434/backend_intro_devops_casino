@@ -69,6 +69,8 @@ jobs:
           kubectl apply -f k8s/postgres-pvc.yaml
           kubectl apply -f k8s/postgres.yaml
           
+          kubectl rollout status deployment/postgres --timeout=120s
+          
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
           kubectl apply -f k8s/hpa.yaml
